@@ -17,15 +17,18 @@ struct _NodoLista {
 static NodoLista*
 nodo_lista_nuevo(void* elemento)
 {
-        //implementa
-        return NULL;
+        //implementado
+        NodoLista* nl = (NodoLista*)malloc(sizeof(NodoLista));
+        nl->elemento = elemento;
+        return nl;
 }
 
 Lista*
 lista_nueva(void)
 {
-        //implementa
-        return NULL;
+        //implementado
+        Lista* l = (Lista*)malloc(sizeof(Lista));
+        return l;
 }
 
 NodoLista*
@@ -187,7 +190,14 @@ lista_busca(Lista*       lista,
             void*        elemento)
 {
         assert(lista != NULL);
-	//implementa
+        // implementado
+	    NodoLista* current = lista->cabeza;
+        while (current != NULL) {
+            if (current->elemento == elemento)
+                return current;
+            current = current->siguiente;
+        }
+        return NULL;
 }
 
 NodoLista*
@@ -230,8 +240,6 @@ lista_copia(Lista* lista)
         }
         return copia;
 }
-
-
 
 static void
 lista_libera_aux(Lista* lista,
