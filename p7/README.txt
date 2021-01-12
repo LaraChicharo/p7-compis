@@ -3,11 +3,7 @@ Instrucciones para compilación y ejecución
 2. Ejecutar: ./parser prueba.in
 
 Actividades
-1. Completar lista.c
-2. Completar parser.c utilizando la definición dirigida por sintaxis
-
-Luego en src2
-3. Extender la definición dirigida por sintaxis para la gramática final.
-4. Extender el analizador léxico en Flex.
-5. Actualizar el parser según la DDS resultante de 3.
+1. Adecuar el analizador lexico lexer.lex de acuerdo a la gramatica del proyecto final.
+2. Completar lista.c
+3. Completar parser.c (con descenso recursivo) por el momento haciendo caso omiso de las reglas semanticas.
 

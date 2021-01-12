@@ -8,6 +8,37 @@
 #define FLOAT 1006
 #define NUM 1007
 #define ID 1008
+
+#define PIZQ 1009
+#define PDER 1010
+#define CHAR 1011
+#define DOUBLE 1012
+#define VOID 1013
+#define IF 1014
+#define ELSE 1015
+#define DO 1016
+#define WHILE 1017
+#define BREAK 1018
+#define SWITCH 1019
+#define DEFAULT 1020
+
+#define AND 1021
+#define EQ 1022
+#define NEQ 1023
+#define LESS 1024
+#define LEQ 1025
+#define GEQ 1026
+#define GREATER 1027
+#define PLUS 1028
+#define MINUS 1029
+#define MULT 1030
+#define DIV 1031
+#define MOD 1032
+#define FACT 1033
+
+#define STR 1034
+
+
 #define FIN 9001
 /* 
  * podemos definir más o cambiar las definiciones 
