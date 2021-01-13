@@ -11,19 +11,9 @@ Lista *tablaSimbolos;
 Lista *tablaTipos;
 
 /**
- * Función para paso de prueba y empate del No-terminal P
+ * Función para prueba y empate del No-terminal A
  */
-void P();
-
-/**
- * Función para paso de prueba y empate del No-terminal D
- */
-void D();
-
-/**
- * Función para paso de prueba y empate del No-terminal T
- */
-void T();
+void A();
 
 /**
  * Función para prueba y empate del No-terminal B
@@ -31,24 +21,14 @@ void T();
 void B();
 
 /**
-* Función para prueba y empate del No-terminal C
-*/
+ * Función para prueba y empate del No-terminal C
+ */
 void C();
 
 /**
- * Función para prueba y empate del No-terminal L
+ * Función para prueba y empate del No-terminal D
  */
-void L();
-
-/**
- * Función para prueba y empate del No-terminal LP (L prima)
- */
-void LP();
-
-/**
- * Función para prueba y empate del No-terminal S
- */
-void S();
+void D();
 
 /**
  * Función para prueba y empate del No-terminal E
@@ -56,9 +36,114 @@ void S();
 void E();
 
 /**
- * Función para prueba y empate del No-terminal EP (E prima)
+ * Función para prueba y empate del No-terminal F
  */
-void EP();
+void F();
+
+/**
+ * Función para prueba y empate del No-terminal FP (F prima)
+ */
+void FP();
+
+/**
+ * Función para prueba y empate del No-terminal G
+ */
+void G();
+
+/**
+ * Función para prueba y empate del No-terminal H
+ */
+void H();
+
+/**
+ * Función para prueba y empate del No-terminal I
+ */
+void I();
+
+/**
+ * Función para prueba y empate del No-terminal IP (I prima)
+ */
+void IP();
+
+/**
+ * Función para prueba y empate del No-terminal J
+ */
+void J();
+
+/**
+ * Función para prueba y empate del No-terminal K
+ */
+void K();
+
+/**
+ * Función para prueba y empate del No-terminal KP (K prima)
+ */
+void KP();
+
+/**
+ * Función para prueba y empate del No-terminal L
+ */
+void L();
+
+/**
+ * Función para prueba y empate del No-terminal M
+ */
+void M();
+
+/**
+ * Función para prueba y empate del No-terminal N
+ */
+void N();
+
+/**
+ * Función para prueba y empate del No-terminal O
+ */
+void O();
+
+/**
+ * Función para prueba y empate del No-terminal P
+ */
+void P();
+
+/**
+ * Función para prueba y empate del No-terminal PP (P prima)
+ */
+void PP();
+
+/**
+ * Función para prueba y empate del No-terminal Q
+ */
+void Q();
+
+/**
+ * Función para prueba y empate del No-terminal QP (Q prima)
+ */
+void QP();
+
+/**
+ * Función para prueba y empate del No-terminal R
+ */
+void R();
+
+/**
+ * Función para prueba y empate del No-terminal RP (R prima)
+ */
+void RP();
+
+/**
+ * Función para prueba y empate del No-terminal S
+ */
+void S();
+
+/**
+ * Función para prueba y empate del No-terminal T
+ */
+void T();
+
+/**
+ * Función para prueba y empate del No-terminal TP (T prima)
+ */
+void TP();
 
 /**
  * Función para prueba y empate del No-terminal U
@@ -71,10 +156,39 @@ void U();
 void UP();
 
 /**
- * Función para prueba y empate del No-terminal F
+ * Función para prueba y empate del No-terminal V
  */
-void F();
+void V();
 
+/**
+ * Función para prueba y empate del No-terminal W
+ */
+void W();
+
+/**
+ * Función para prueba y empate del No-terminal X
+ */
+void X();
+
+/**
+ * Función para prueba y empate del No-terminal Y
+ */
+void Y();
+
+/**
+ * Función para prueba y empate del No-terminal YP (Y prima)
+ */
+void YP();
+
+/**
+ * Función para prueba y empate del No-terminal Z
+ */
+void Z();
+
+/**
+ * Función para prueba y empate del No-terminal ZP (Z prima)
+ */
+void ZP();
 
 /**
  * Función para consumo de componente léxico actual al hacer empate

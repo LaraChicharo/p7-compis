@@ -13,133 +13,199 @@ void eat(int clase) {
 
 void parse() {
   //inicializar TS y TT
-  P();
+  A();
   //imprimir TS y TT
 }
 
-void P() {
-  D();
-  S();
+void A() {
+  B();
+  G();
   if(equals(tokenActual, FIN)) {
     puts("Fin de análisis sintáctico.");
     return;
   }
 }
 
-void D(){
-  if(equals(tokenActual, INT) || equals(token
-  , FLOAT)) {
-    T();
-    L();
+void B(){
+  C();
+  F();
+  if (equals(tokenActual, PCOMA)) {
     eat(PCOMA);
-    D();
+    B();
   }
 }
 
-void T(){
-  B();
-  C();
+void C(){
+  D();
+  E();
 }
 
-void B(){
+void D(){
   if (equals(tokenActual, INT)) {
     eat(INT);
   }
   else if (equals(tokenActual, FLOAT)) {
     eat(FLOAT);
   }
-}
-
-void C(){
-  if (equals(tokenActual, CIZQ)) {
-    char* valor;
-    eat(CIZQ);
-    valor = tokenActual.valor;
-    eat(NUM);
-    eat(CDER);
-    C();
+  else if (equals(tokenActual, CHAR)) {
+    eat(CHAR);
   }
-}
-
-void L(){
-  if (equals(tokenActual, ID)) {
-    eat(ID);
-    LP();
+  else if (equals(tokenActual, DOUBLE)) {
+    eat(DOUBLE);
   }
-}
-
-void LP(){
-  if (equals(tokenActual, COMA)) {
-    eat(COMA);
-    eat(ID);
-    LP();
+  else if (equals(tokenActual, VOID)) {
+    eat(VOID);
   }
-}
-
-void S(){
-  if (equals(tokenActual, ID)) {
-    eat(ID);
-    eat(EQ);
-    E();
-    eat(PCOMA);
-  }
-  // duda con
-  // S -> id = E; S | id = E;
 }
 
 void E(){
-  U();
-  EP();
-}
-
-void EP(){
-  if (equals(tokenActual, PLUS)) {
-    eat(PLUS);
-    U();
-    EP();
-  }
-  else if (equals(tokenActual, MINUS)) {
-    eat(MINUS);
-    U();
-    EP();
-  }
-}
-
-void U(){
-  F();
-  UP();
-}
-
-void UP(){
-  if (equals(tokenActual, MULT)) {
-    eat(MULT);
-    F();
-    UP();
-  }
-  else if (equals(tokenActual, DIV)) {
-    eat(DIV);
-    F();
-    UP();
-  }
-  else if (equals(tokenActual, MOD)) {
-    eat(MOD);
-    F();
-    UP();
+  if (equals(tokenActual, PIZQ)) {
+    char* valor;
+    eat(PIZQ);
+    valor = tokenActual.valor;
+    eat(NUM);
+    eat(PDER);
+    E();
   }
 }
 
 void F(){
-  if (equals(tokenActual, PIZQ)) {
-    eat(PIZQ);
-    E();
-    eat(PDER);
-  }
-  else if (equals(tokenActual, ID)) {
+  if (equals(tokenActual, ID)) {
     eat(ID);
+    FP();
   }
-  else if (equals(tokenActual, NUM)) {
-    eat(NUM);
+}
+
+void FP(){
+  if (equals(tokenActual, COMA)) {
+    eat(COMA);
+    eat(ID);
+    FP();
   }
+}
+
+void G() {
+  if (equals(tokenActual, FUNC)) {
+    eat(FUNC);
+    eat(ID);
+    eat(PIZQ);
+    H();
+    eat(PDER);
+    J();
+    G();
+  }
+}
+
+void H() {
+  
+}
+
+void I() {
+
+}
+
+void IP() {
+
+}
+
+void J() {
+
+}
+
+void K() {
+
+}
+
+void KP() {
+
+}
+
+void L() {
+
+}
+
+void M() {
+
+}
+
+void N() {
+
+}
+
+void O() {
+
+}
+
+void P() {
+
+}
+
+void PP() {
+
+}
+
+void Q() {
+
+}
+
+void QP() {
+
+}
+
+void R() {
+
+}
+
+void RP() {
+
+}
+
+void S() {
+
+}
+
+void T() {
+
+}
+
+void TP() {
+
+}
+
+void U() {
+
+}
+
+void UP() {
+
+}
+
+void V() {
+
+}
+
+void W() {
+
+}
+
+void X() {
+
+}
+
+void Y() {
+
+}
+
+void YP() {
+
+}
+
+void Z() {
+
+}
+
+void ZP() {
+
 }
 
 void error(char *msg) {
