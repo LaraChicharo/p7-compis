@@ -18,10 +18,11 @@ cadena \".*\"
 
 "," { ECHO; return crea_token(COMA, ""); }
 ";" { ECHO; return crea_token(PCOMA, ""); }
-"[" { ECHO; return crea_token(CIZQ, ""); }
-"]" { ECHO; return crea_token(CDER, ""); }
+"{" { ECHO; return crea_token(CIZQ, ""); }
+"}" { ECHO; return crea_token(CDER, ""); }
 "(" { ECHO; return crea_token(PIZQ, ""); }
 ")" { ECHO; return crea_token(PDER, ""); }
+":" { ECHO; return crea_token(DDOT, ""); }
 
 "int" { ECHO; return crea_token(INT, ""); }
 "float" { ECHO; return crea_token(FLOAT, "");}
@@ -36,7 +37,10 @@ cadena \".*\"
 "break" { ECHO; return crea_token(BREAK, ""); }
 "switch" { ECHO; return crea_token(SWITCH, ""); }
 "default" { ECHO; return crea_token(DEFAULT, ""); }
+"case" { ECHO; return crea_token(CASE, ""); }
 
+
+"=" {ECHO; return crea_token(ASIG, ""); }
 "&&" { ECHO; return crea_token(AND, ""); }
 "==" { ECHO; return crea_token(EQ, ""); }
 "!=" { ECHO; return crea_token(NEQ, ""); }
@@ -51,9 +55,8 @@ cadena \".*\"
 "%" { ECHO; return crea_token(MOD, ""); }
 "!" { ECHO; return crea_token(FACT, ""); }
 
+
 {cadena} { ECHO; return crea_token(STR, yytext); }
-
-
 {num_ent} { ECHO; return crea_token_tipo(NUM, yytext, 0); }
 {num_float} { ECHO; return crea_token_tipo(NUM, yytext, 1); }
 {id} { ECHO; return crea_token(ID, yytext); }

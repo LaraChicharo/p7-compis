@@ -1,45 +1,49 @@
 #ifndef TOKENS_H
 #define TOKENS_H
-#define COMA 1001
-#define PCOMA 1002
-#define CIZQ 1003
-#define CDER 1004
-#define INT 1005
-#define FLOAT 1006
-#define NUM 1007
-#define ID 1008
+#define COMA 1001 // , 
+#define PCOMA 1002 // ;
+#define CIZQ 1003 // {
+#define CDER 1004 // }
+#define INT 1005 // int 
+#define FLOAT 1006 // float 
+#define NUM 1007 // double 
+#define ID 1008 // id 
 
-#define PIZQ 1009
-#define PDER 1010
-#define CHAR 1011
-#define DOUBLE 1012
-#define VOID 1013
-#define IF 1014
-#define ELSE 1015
-#define DO 1016
-#define WHILE 1017
-#define BREAK 1018
-#define SWITCH 1019
-#define DEFAULT 1020
+#define PIZQ 1009 // ()
+#define PDER 1010 // )
+#define CHAR 1011 // char 
+#define DOUBLE 1012  // double
+#define VOID 1013 // void 
+#define IF 1014 // if 
+#define ELSE 1015 // else 
+#define DO 1016 // do 
+#define WHILE 1017 // while 
+#define BREAK 1018 // break 
+#define SWITCH 1019 // switch 
+#define DEFAULT 1020 // default 
+#define CASE 1021 // case 
 
-#define AND 1021
-#define EQ 1022
-#define NEQ 1023
-#define LESS 1024
-#define LEQ 1025
-#define GEQ 1026
-#define GREATER 1027
-#define PLUS 1028
-#define MINUS 1029
-#define MULT 1030
-#define DIV 1031
-#define MOD 1032
-#define FACT 1033
-
-#define STR 1034
+#define AND 1022 // &&
+#define EQ 1023 // ==
+#define NEQ 1024 // !=
+#define LESS 1025 // <
+#define LEQ 1026 // <=
+#define GEQ 1027 // >=
+#define GREATER 1028 // >
+#define PLUS 1029 // +
+#define MINUS 1030 // -
+#define MULT 1031 // *
+#define DIV 1032 // /
+#define MOD 1033 // %
+#define NOT 1034 // ! 
 
 
-#define FIN 9001
+#define STR 1035 // cadena
+#define DDOT 1036 // :
+#define ASIG 1037 // =
+#define NUM 1038 // numero
+
+#define FIN 9001 // $ 
 /* 
  * podemos definir más o cambiar las definiciones 
  * siempre y cuando actualicemos el lexer 
