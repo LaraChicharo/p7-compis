@@ -47,17 +47,17 @@ D -> int
   | void
 E -> ( numero ) E
   | eps
-F -> F , id
-  | id
+F -> id F'
+F' -> , id F' | eps
 G -> func id ( H ) J G
   | eps
 H -> I
   | eps
-I -> I, C id
-  | C id
+I -> C id I'
+I' -> , C id I' | eps
 J -> { B K }
-K -> K L
-  | L
+K -> L K'
+K' -> L K' | eps
 L -> Z = P
   | if( P ) L
   | if( P ) L else L
@@ -71,26 +71,21 @@ M -> N M
   | O
 N -> case numero: K
 O -> default: K
-P -> P "||" Q
-  | Q
-Q -> Q && R
-  | R
-R -> R == S
-  | R != S
-  | S
-
+P -> Q P'
+P' -> "||" Q P' | eps
+Q -> R Q'
+Q' -> && R Q' | eps
+R -> S R'
+R' -> == S R' | != S R' | eps
 S -> T < T
   | T <= T
   | T >= T
   | T > T
   | T
-T -> T + U
-  | T - U
-  | U
-U -> U * V
-  | U / V
-  | U % V
-  | V
+T -> U T'
+T' -> + U T' | - U T' | eps
+U -> V U'
+U' -> * V U' | / V U' | % V U' | eps
 V -> ! V
   | - V
   | W
@@ -103,7 +98,7 @@ W -> (P)
   | id( X )
 X -> Y
   | eps
-Y -> Y , P
-  | P
-Z -> Z ( P )
-  | id
+Y -> P Y'
+Y' -> , P Y' | eps
+Z -> id Z'
+Z' -> ( P ) Z' | eps
