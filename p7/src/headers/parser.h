@@ -11,6 +11,11 @@ Lista *tablaSimbolos;
 Lista *tablaTipos;
 
 /**
+ * Función para paso de prueba y empate del No-terminal P
+ */
+void P();
+
+/**
  * Función para paso de prueba y empate del No-terminal D
  */
 void D();
@@ -18,27 +23,57 @@ void D();
 /**
  * Función para paso de prueba y empate del No-terminal T
  */
-int T();
+void T();
 
 /**
  * Función para prueba y empate del No-terminal B
  */
-int B();
+void B();
 
 /**
- * Función para prueba y empate del No-terminal C
- */
-int C(int base);
+* Función para prueba y empate del No-terminal C
+*/
+void C();
 
 /**
  * Función para prueba y empate del No-terminal L
  */
-void L(int tipo);
+void L();
 
 /**
  * Función para prueba y empate del No-terminal LP (L prima)
  */
-void LP(int tipo);
+void LP();
+
+/**
+ * Función para prueba y empate del No-terminal S
+ */
+void S();
+
+/**
+ * Función para prueba y empate del No-terminal E
+ */
+void E();
+
+/**
+ * Función para prueba y empate del No-terminal EP (E prima)
+ */
+void EP();
+
+/**
+ * Función para prueba y empate del No-terminal U
+ */
+void U();
+
+/**
+ * Función para prueba y empate del No-terminal UP (U prima)
+ */
+void UP();
+
+/**
+ * Función para prueba y empate del No-terminal F
+ */
+void F();
 
 
 /**
@@ -47,7 +82,7 @@ void LP(int tipo);
 void eat(int clase);
 
 /**
- * Función principal de análisis sintáctico. 
+ * Función principal de análisis sintáctico.
  * Debe llamar a función de símbolo inicial de la gramática.
  * También inicializar las tablas de símbolos y tipos.
  */
@@ -77,5 +112,3 @@ void printTT(Lista *TT);
  * Función para imprimir Tabla de símbolos
  */
 void printTS(Lista *TS);
-
-

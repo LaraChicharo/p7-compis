@@ -13,42 +13,85 @@ void eat(int clase) {
 
 void parse() {
   //inicializar TS y TT
-  D();
+  P();
   //imprimir TS y TT
 }
 
-void D() {
+void P() {
+  D();
+  S();
   if(equals(tokenActual, FIN)) {
     puts("Fin de análisis sintáctico.");
     return;
   }
-  //implementa
 }
 
-int T() {
-  //implementa
-  return 0; //cambiar
+void D(){
+  if(equals(tokenActual, INT) || equals(token
+  , FLOAT)) {
+    T();
+    L();
+    eat(PCOMA);
+    D();
+  }
 }
 
-int B() {
-  //implementa
-  return 0;
+void T(){
+  B();
+  C();
 }
 
-int C (int base) { 
-  //implementa
-  return 0; 
+void B(){
+  if (equals(tokenActual, INT)) {
+    eat(INT);
+  }
+  else if (equals(tokenActual, FLOAT)) {
+    eat(FLOAT);
+  }
 }
 
-void L(int tipo) {
-  //implementa
+void C(){
+  if (equals(tokenActual, CIZQ)) {
+    char* valor;
+    eat(CIZQ);
+    valor = tokenActual.valor();
+    eat(NUM);
+    eat(CDER);
+    C();
+  }
 }
 
-void LP(int tipo) {
-  //implementa
+void L(){
+
 }
 
+void LP(){
 
+}
+
+void S(){
+
+}
+
+void E(){
+
+}
+
+void EP(){
+
+}
+
+void U(){
+
+}
+
+void UP(){
+
+}
+
+void F(){
+
+}
 
 void error(char *msg) {
   printf(msg);
