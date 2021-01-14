@@ -23,6 +23,8 @@ void A() {
   if(equals(tokenActual, FIN)) {
     puts("Fin de análisis sintáctico.");
     return;
+  } else {
+    puts("kk");
   }
 }
 

@@ -48,6 +48,8 @@
 #define TRUE 1042
 #define FALSE 1043
 
+#define FUNC 1044
+
 #define FIN 9001 // $
 /*
  * podemos definir más o cambiar las definiciones
