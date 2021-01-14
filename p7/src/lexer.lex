@@ -57,7 +57,7 @@ cadena \".*\"
 "!" { ECHO; return crea_token(FACT, ""); }
 "=" {ECHO; return crea_token(ASIG, ""); }
 "{" {ECHO; return crea_token(LKEY, ""); }
-"}" {ECHO: return crea_token(RKEY, ""); }
+"}" {ECHO; return crea_token(RKEY, ""); }
 
 "true" {ECHO; return crea_token(TRUE, ""); }
 "false" {ECHO; return crea_token(FALSE, ""); }

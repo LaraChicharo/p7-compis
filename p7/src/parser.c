@@ -62,7 +62,7 @@ void E(){
   if (equals(tokenActual, PIZQ)) {
     char* valor;
     eat(CIZQ);
-    valor = tokenActual.valor;
+    valor = tokenActual->valor;
     eat(NUM);
     eat(CDER);
     E();
