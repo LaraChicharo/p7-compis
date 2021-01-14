@@ -29,11 +29,15 @@ void A() {
 }
 
 void B(){
-  C();
-  F();
-  if (equals(tokenActual, PCOMA)) {
-    eat(PCOMA);
-    B();
+  if (equals(tokenActual, INT)
+    || equals(tokenActual, FLOAT)
+    || equals(tokenActual, CHAR)
+    || equals(tokenActual, DOUBLE)
+    || equals(tokenActual, VOID)) {
+      C();
+      F();
+      eat(PCOMA);
+      B();
   }
 }
 
