@@ -2,8 +2,8 @@
 #define TOKENS_H
 #define COMA 1001 // , 
 #define PCOMA 1002 // ;
-#define CIZQ 1003 // {
-#define CDER 1004 // }
+#define CIZQ 1003 // [
+#define CDER 1004 // ]
 #define INT 1005 // int 
 #define FLOAT 1006 // float 
 #define NUM 1007 // double 
@@ -42,6 +42,12 @@
 #define DDOT 1036 // :
 #define ASIG 1037 // =
 #define NUM 1038 // numero
+#define OR 1039 // || 
+#define LKEY 1040 // {
+#define RKEY 1041 // }
+
+#define TRUE 1042
+#define FALSE 1043
 
 #define FIN 9001 // $ 
 /* 
