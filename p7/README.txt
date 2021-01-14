@@ -112,3 +112,179 @@ Y' -> , P Y'
   | eps
 Z -> id Z'
 Z' -> [ P ] Z' | eps
+
+FIRST:
+
+A -> B G
+B -> C -> D -> int
+        | float
+        | char
+        | double
+        | void
+  | eps
+C -> D -> int
+        | float
+        | char
+        | double
+        | void
+D -> int
+  | float
+  | char
+  | double
+  | void
+E -> [
+  | eps
+F -> id
+F' -> ,
+  | eps
+G -> func
+  | eps
+H -> I -> C -> D -> int
+        | float
+        | char
+        | double
+        | void
+  | eps
+I -> C -> D -> int
+        | float
+        | char
+        | double
+        | void
+I' -> ,
+  | eps
+J -> {
+K -> L -> Z -> id
+      | if
+      | while
+      | do
+      | break
+      | J -> {
+      | switch
+K' -> L -> Z -> id
+        | if
+        | while
+        | do
+        | break
+        | J -> {
+        | switch
+  | eps
+L -> Z -> id
+  | if
+  | while
+  | do
+  | break
+  | J -> {
+  | switch
+M -> N -> case
+  | eps
+  | O -> default
+N -> case
+O -> default
+P -> Q -> R -> S -> T -> U -> V -> !
+                    | -
+                    | W -> (
+                    | Z -> id
+                    | numero
+                    | cadena
+                    | true
+                    | false
+                    | id
+P' -> "||"
+  | eps
+Q -> R -> S -> T -> U -> V -> !
+                | -
+                | W -> (
+                | Z -> id
+                | numero
+                | cadena
+                | true
+                | false
+                | id
+Q' -> &&
+  | eps
+R -> S -> T -> U -> V -> !
+            | -
+            | W -> (
+            | Z -> id
+            | numero
+            | cadena
+            | true
+            | false
+            | id
+R' -> ==
+  | !=
+  | eps
+S -> T -> U -> V -> !
+        | -
+        | W -> (
+        | Z -> id
+        | numero
+        | cadena
+        | true
+        | false
+        | id
+T -> U -> V -> !
+    | -
+    | W -> (
+    | Z -> id
+    | numero
+    | cadena
+    | true
+    | false
+    | id
+T' -> +
+  | -
+  | eps
+U -> V -> !
+  | -
+  | W -> (
+    | Z -> id
+    | numero
+    | cadena
+    | true
+    | false
+    | id
+U' -> *
+  | /
+  | %
+  | eps
+V -> !
+  | -
+  | W -> (
+    | Z -> id
+    | numero
+    | cadena
+    | true
+    | false
+    | id
+W -> (
+  | Z -> id
+  | numero
+  | cadena
+  | true
+  | false
+  | id
+X -> Y -> P -> Q -> R -> S -> T -> U -> V -> !
+                            | -
+                            | W -> (
+                            | Z -> id
+                            | numero
+                            | cadena
+                            | true
+                            | false
+                            | id
+  | eps
+Y -> P -> Q -> R -> S -> T -> U -> V -> !
+                        | -
+                        | W -> (
+                        | Z -> id
+                        | numero
+                        | cadena
+                        | true
+                        | false
+                        | id
+Y' -> ,
+  | eps
+Z -> id
+Z' -> [
+  | eps
