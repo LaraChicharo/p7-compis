@@ -141,22 +141,19 @@ void K() {
 
 void KP() {
   if (equals(tokenActual,ID) ||
-    equals(tokenActual,PIZQ) ||
     equals(tokenActual,IF) ||
     equals(tokenActual,WHILE) ||
     equals(tokenActual,DO) ||
     equals(tokenActual,BREAK) ||
     equals(tokenActual,LKEY) ||
-    equals(tokenActual,SWITCH))
-  {
+    equals(tokenActual,SWITCH)) {
     L();
     KP();
   }
 }
 
 void L() {
-  if (equals(tokenActual, ID) || equals(tokenActual,PIZQ))
-  {
+  if (equals(tokenActual, ID)) {
     Z();
     eat(ASIG);
     P();
@@ -232,7 +229,7 @@ void O() {
   K();
 }
 
-void P() {
+void P() { //
   Q();
   PP();
 }
@@ -245,7 +242,7 @@ void PP() {
   }
 }
 
-void Q() {
+void Q() { //
   R();
   QP();
 }
