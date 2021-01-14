@@ -40,6 +40,7 @@ cadena \".*\"
 "case" { ECHO; return crea_token(CASE, ""); }
 "true" { ECHO; return crea_token(TRUE, ""); }
 "false" { ECHO; return crea_token(FALSE, ""); }
+"func" { ECHO; return crea_token(FUNC, ""); }
 
 "&&" { ECHO; return crea_token(AND, ""); }
 "||" { ECHO; return crea_token(OR, ""); }

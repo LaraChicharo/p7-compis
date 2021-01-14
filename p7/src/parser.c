@@ -349,31 +349,41 @@ void V() {
 }
 
 void W() {
-  if (equals(tokenActual, PIZQ)) {
-    eat(PIZQ);
-    P();
-    eat(PDER);
-  }
-  else if (equals(tokenActual, NUM)) {
-    eat(NUM);
-  }
-  else if (equals(tokenActual, STR)) {
-    eat(STR);
-  }
-  else if (equals(tokenActual, TRUE)) {
-    eat(TRUE);
-  }
-  else if (equals(tokenActual, FALSE)) {
-    eat(FALSE);
-  }
-  else if (equals(tokenActual, ID)) {
-    eat(ID);
-    eat(PIZQ);
-    X();
-    eat(PDER);
-  }
-  else {
-    Z();
+  switch(tokenActual->clase)
+  {
+    case PIZQ:
+      eat(PIZQ);
+      P();
+      eat(PDER);
+      break;
+    case ID:
+      eat(ID);
+      if (equals(tokenActual,PIZQ))
+      {
+        eat(PIZQ);
+        X();
+        eat(PDER);
+      }
+      else if (equals(tokenActual,CIZQ))
+      {
+        ZP();
+      }
+      break;
+    case NUM:
+      eat(NUM);
+      break;
+    case STR:
+      eat(STR);
+      break;
+    case TRUE:
+      eat(TRUE);
+      break;
+    case FALSE:
+      eat(FALSE);
+      break;
+    default:
+      error("Error de sintaxis");
+      break;
   }
 }
 
