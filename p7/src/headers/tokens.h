@@ -22,11 +22,8 @@
 #define SWITCH 1019 // switch
 #define DEFAULT 1020 // default
 #define CASE 1021 // case
-#define TRUE 1022 // true
-#define FALSE 1023 // false
 
 #define AND 1024 // &&
-#define OR 1025 // ||
 #define EQ 1026 // ==
 #define NEQ 1027 // !=
 #define LESS 1028 // <
@@ -44,7 +41,6 @@
 #define STR 1035 // cadena
 #define DDOT 1036 // :
 #define ASIG 1037 // =
-#define NUM 1038 // numero
 #define OR 1039 // ||
 #define LKEY 1040 // {
 #define RKEY 1041 // }
