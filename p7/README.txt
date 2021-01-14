@@ -45,7 +45,7 @@ D -> int
   | char
   | double
   | void
-E -> ( numero ) E
+E -> [ numero ] E
   | eps
 F -> id F'
 F' -> , id F' | eps
@@ -111,5 +111,4 @@ Y -> P Y'
 Y' -> , P Y'
   | eps
 Z -> id Z'
-Z' -> ( P ) Z'
-  | eps
+Z' -> [ P ] Z' | eps

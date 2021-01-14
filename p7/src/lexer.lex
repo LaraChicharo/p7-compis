@@ -18,8 +18,8 @@ cadena \".*\"
 
 "," { ECHO; return crea_token(COMA, ""); }
 ";" { ECHO; return crea_token(PCOMA, ""); }
-"{" { ECHO; return crea_token(CIZQ, ""); }
-"}" { ECHO; return crea_token(CDER, ""); }
+"[" { ECHO; return crea_token(CIZQ, ""); }
+"]" { ECHO; return crea_token(CDER, ""); }
 "(" { ECHO; return crea_token(PIZQ, ""); }
 ")" { ECHO; return crea_token(PDER, ""); }
 ":" { ECHO; return crea_token(DDOT, ""); }
@@ -41,8 +41,6 @@ cadena \".*\"
 "true" { ECHO; return crea_token(TRUE, ""); }
 "false" { ECHO; return crea_token(FALSE, ""); }
 
-
-"=" {ECHO; return crea_token(ASIG, ""); }
 "&&" { ECHO; return crea_token(AND, ""); }
 "||" { ECHO; return crea_token(OR, ""); }
 "==" { ECHO; return crea_token(EQ, ""); }
@@ -57,7 +55,12 @@ cadena \".*\"
 "/" { ECHO; return crea_token(DIV, ""); }
 "%" { ECHO; return crea_token(MOD, ""); }
 "!" { ECHO; return crea_token(FACT, ""); }
+"=" {ECHO; return crea_token(ASIG, ""); }
+"{" {ECHO; return crea_token(LKEY, ""); }
+"}" {ECHO: return crea_token(RKEY, ""); }
 
+"true" {ECHO; return crea_token(TRUE, ""); }
+"false" {ECHO; return crea_token(FALSE, ""); }
 
 {cadena} { ECHO; return crea_token(STR, yytext); }
 {num_ent} { ECHO; return crea_token_tipo(NUM, yytext, 0); }

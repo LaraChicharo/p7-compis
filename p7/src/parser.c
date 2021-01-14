@@ -61,10 +61,10 @@ void D(){
 void E(){
   if (equals(tokenActual, PIZQ)) {
     char* valor;
-    eat(PIZQ);
+    eat(CIZQ);
     valor = tokenActual.valor;
     eat(NUM);
-    eat(PDER);
+    eat(CDER);
     E();
   }
 }
@@ -118,10 +118,10 @@ void IP() {
 }
 
 void J() {
-  eat(LIZQ);
+  eat(LKEY);
   B();
   K();
-  eat(LDER);
+  eat(RKEY);
 }
 
 void K() {
@@ -130,12 +130,29 @@ void K() {
 }
 
 void KP() {
-  L();
-  KP();
+  if (equals(tokenActual,ID) ||
+    equals(tokenActual,PIZQ) ||
+    equals(tokenActual,IF) ||
+    equals(tokenActual,WHILE) ||
+    equals(tokenActual,DO) ||
+    equals(tokenActual,BREAK) ||
+    equals(tokenActual,LKEY) ||
+    equals(tokenActual,SWITCH))
+  {
+    L();
+    KP();
+  }
 }
 
 void L() {
-  if (equals(tokenActual, IF)) {
+  if (equals(tokenActual, ID) || equals(tokenActual,PIZQ))
+  {
+    Z();
+    eat(ASIG);
+    P();
+  }
+  else if (equals(tokenActual, IF))
+  {
     eat(IF);
     eat(PIZQ);
     P();
@@ -161,26 +178,24 @@ void L() {
     P();
     eat(PDER);
   }
-  else if (equals(tokenActual, BREAK)) {
+  else if (equals(tokenActual,BREAK))
+  {
     eat(BREAK);
     eat(PCOMA);
   }
-  else if (equals(tokenActual, SWITCH)) {
+  else if (equals(tokenActual,LKEY))
+  {
+    J();
+  }
+  else if (equals(tokenActual,SWITCH))
+  {
     eat(SWITCH);
     eat(PIZQ);
     P();
     eat(PDER);
-    eat(LIZQ);
+    eat(LKEY);
     M();
-    eat(LDER);
-  }
-  else if (equals(tokenActual, LIZQ)) {
-    J();
-  }
-  else {
-    Z();
-    eat(ASIG);
-    P();
+    eat(RKEY);
   }
 }
 
@@ -381,16 +396,18 @@ void YP() {
   }
 }
 
+//Funcion que cae en desuso
 void Z() {
   eat(ID);
   ZP();
 }
 
 void ZP() {
-  if (equals(tokenActual, PIZQ)) {
-    eat(PIZQ);
+  if (equals(tokenActual,CIZQ))
+  {
+    eat(CIZQ);
     P();
-    eat(PDER);
+    eat(CDER);
     ZP();
   }
 }
