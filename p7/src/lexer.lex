@@ -38,10 +38,13 @@ cadena \".*\"
 "switch" { ECHO; return crea_token(SWITCH, ""); }
 "default" { ECHO; return crea_token(DEFAULT, ""); }
 "case" { ECHO; return crea_token(CASE, ""); }
+"true" { ECHO; return crea_token(TRUE, ""); }
+"false" { ECHO; return crea_token(FALSE, ""); }
 
 
 "=" {ECHO; return crea_token(ASIG, ""); }
 "&&" { ECHO; return crea_token(AND, ""); }
+"||" { ECHO; return crea_token(OR, ""); }
 "==" { ECHO; return crea_token(EQ, ""); }
 "!=" { ECHO; return crea_token(NEQ, ""); }
 "<" { ECHO; return crea_token(LESS, ""); }
@@ -65,5 +68,3 @@ cadena \".*\"
 . { printf("Error léxico en la linea: %i\n", yylineno); exit(1); }
 
 %%
-
-

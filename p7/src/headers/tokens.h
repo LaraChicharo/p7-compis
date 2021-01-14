@@ -1,52 +1,55 @@
 #ifndef TOKENS_H
 #define TOKENS_H
-#define COMA 1001 // , 
+#define COMA 1001 // ,
 #define PCOMA 1002 // ;
-#define CIZQ 1003 // {
-#define CDER 1004 // }
-#define INT 1005 // int 
-#define FLOAT 1006 // float 
-#define NUM 1007 // double 
-#define ID 1008 // id 
+#define LIZQ 1003 // {
+#define LDER 1004 // }
+#define INT 1005 // int
+#define FLOAT 1006 // float
+#define NUM 1007 // double
+#define ID 1008 // id
 
-#define PIZQ 1009 // ()
+#define PIZQ 1009 // (
 #define PDER 1010 // )
-#define CHAR 1011 // char 
+#define CHAR 1011 // char
 #define DOUBLE 1012  // double
-#define VOID 1013 // void 
-#define IF 1014 // if 
-#define ELSE 1015 // else 
-#define DO 1016 // do 
-#define WHILE 1017 // while 
-#define BREAK 1018 // break 
-#define SWITCH 1019 // switch 
-#define DEFAULT 1020 // default 
-#define CASE 1021 // case 
+#define VOID 1013 // void
+#define IF 1014 // if
+#define ELSE 1015 // else
+#define DO 1016 // do
+#define WHILE 1017 // while
+#define BREAK 1018 // break
+#define SWITCH 1019 // switch
+#define DEFAULT 1020 // default
+#define CASE 1021 // case
+#define TRUE 1022 // true
+#define FALSE 1023 // false
 
-#define AND 1022 // &&
-#define EQ 1023 // ==
-#define NEQ 1024 // !=
-#define LESS 1025 // <
-#define LEQ 1026 // <=
-#define GEQ 1027 // >=
-#define GREATER 1028 // >
-#define PLUS 1029 // +
-#define MINUS 1030 // -
-#define MULT 1031 // *
-#define DIV 1032 // /
-#define MOD 1033 // %
-#define NOT 1034 // ! 
+#define AND 1024 // &&
+#define OR 1025 // ||
+#define EQ 1026 // ==
+#define NEQ 1027 // !=
+#define LESS 1028 // <
+#define LEQ 1029 // <=
+#define GEQ 1030 // >=
+#define GREATER 1031 // >
+#define PLUS 1032 // +
+#define MINUS 1033 // -
+#define MULT 1034 // *
+#define DIV 1035 // /
+#define MOD 1036 // %
+#define NOT 1037 // !
 
 
-#define STR 1035 // cadena
-#define DDOT 1036 // :
-#define ASIG 1037 // =
-#define NUM 1038 // numero
+#define STR 1038 // cadena
+#define DDOT 1039 // :
+#define ASIG 1040 // =
+#define NUM 1041 // numero
 
-#define FIN 9001 // $ 
-/* 
- * podemos definir más o cambiar las definiciones 
- * siempre y cuando actualicemos el lexer 
+#define FIN 9001 // $
+/*
+ * podemos definir más o cambiar las definiciones
+ * siempre y cuando actualicemos el lexer
  */
 #endif
 
@@ -82,6 +85,3 @@ int equals(token *t1, int clase);
  * Liberación de memoria de un token
  */
 void libera(token *t);
-
-
-

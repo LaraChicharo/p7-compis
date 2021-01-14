@@ -72,20 +72,29 @@ M -> N M
 N -> case numero: K
 O -> default: K
 P -> Q P'
-P' -> "||" Q P' | eps
+P' -> "||" Q P'
+  | eps
 Q -> R Q'
-Q' -> && R Q' | eps
+Q' -> && R Q'
+  | eps
 R -> S R'
-R' -> == S R' | != S R' | eps
+R' -> == S R'
+  | != S R'
+  | eps
 S -> T < T
   | T <= T
   | T >= T
   | T > T
   | T
 T -> U T'
-T' -> + U T' | - U T' | eps
+T' -> + U T'
+  | - U T'
+  | eps
 U -> V U'
-U' -> * V U' | / V U' | % V U' | eps
+U' -> * V U'
+  | / V U'
+  | % V U'
+  | eps
 V -> ! V
   | - V
   | W
@@ -99,6 +108,8 @@ W -> (P)
 X -> Y
   | eps
 Y -> P Y'
-Y' -> , P Y' | eps
+Y' -> , P Y'
+  | eps
 Z -> id Z'
-Z' -> ( P ) Z' | eps
+Z' -> ( P ) Z'
+  | eps
