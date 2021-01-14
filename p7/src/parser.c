@@ -65,7 +65,7 @@ void D(){
 }
 
 void E(){
-  if (equals(tokenActual, PIZQ)) {
+  if (equals(tokenActual, CIZQ)) {
     char* valor;
     eat(CIZQ);
     valor = tokenActual->valor;
@@ -103,15 +103,19 @@ void G() {
 }
 
 void H() {
-    I();
+  if (equals(tokenActual, INT)
+    || equals(tokenActual, FLOAT)
+    || equals(tokenActual, CHAR)
+    || equals(tokenActual, DOUBLE)
+    || equals(tokenActual, VOID)) {
+      I();
+  }
 }
 
 void I() {
   C();
-  if (equals(tokenActual, ID)) {
-    eat(ID);
-    IP();
-  }
+  eat(ID);
+  IP();
 }
 
 void IP() {
