@@ -1,26 +1,46 @@
 #ifndef TABLASIMBOLOS_H
 #define TABLASIMBOLOS_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+#include <stack>
+#include <vector>
+#include <string>
 #include "simbolo.h"
-/**
- * Estructura para modelar la tabla de simbolos
- */
-typedef struct tabla_simbolos {
-  Lista *tabla;
-} tabla_simbolos;
 
-int buscar(char* id);
+    using namespace std;
 
-int insertar(simbolo s);
+    struct simbolo{
+        string id;
+        int tipo;
+        int dir;
+        int var;
+        vector<int> args;
+    };
 
-int getTipo(char* id);
+    struct tabla_simbolos{
+        vector<simbolo> tabla;    
+    public:
+        bool buscar(string id);
+        bool insertar(simbolo s);
+        int getTipo(string id);
+    };
 
-typedef struct pila_simbolos {
-  Lista *pila;
-} pila_simbolos;
 
-void push();
 
-void pop();
+    struct pila_simbolos{
+        stack<tabla_simbolos> pila;
+    public:
+        void push() ;
+        void pop();
+        tabla_simbolos top();
+    };
 
-tabla_simbolos top();
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

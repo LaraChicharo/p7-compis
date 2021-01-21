@@ -1,19 +1,40 @@
 #ifndef CODIGOINT_H
 #define CODIGOINT_H
 
-typedef struct cuadrupla {
-  char* op;
-  char* arg1;
-  char* arg2;
-  char* res;
-} cuadrupla;
+#include <vector>
+#include <string>
+using namespace std;
 
-typedef struct CodigoInt {
-  Lista *codigo;
-} cuadrupla;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void genCod(cuadrupla c);
+    struct cuadrupla{
+        string op;
+        string arg1;
+        string arg2;
+        string res;
 
-void mostrar();
+        cuadrupla(string op, string arg1, string arg2, string res){
+            this->op = op;
+            this->arg1 = arg1;
+            this->arg2 = arg2;
+            this->res = res;
+        }
+    };
 
-void imprimir(char* fileName);
+    struct CodigoInt{
+        vector<cuadrupla> codigo;
+        void genCod(cuadrupla c);
+        void mostrar();
+        void imprimir(string fileName);
+    };
+
+
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* CODIGOINT_H */

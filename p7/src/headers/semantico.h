@@ -1,20 +1,27 @@
 #ifndef SEMANTICO_H
 #define SEMANTICO_H
 
+#include <string>
 #include "codigoint.h"
+using namespace std;
 
-typedef struct semantico {
-  CodigoInt codigo;
-} semantico;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-int maximo(int tipo1, int tipo2);
+    struct semantico{
+        CodigoInt codigo;
+    public:
+        int maximo(int tipo1, int tipo2);
+        string ampliar(string dir, int menor, int mayor);
+        string reducir(string dir, int mayor, int menor);
+        string nuevaTemporal();
+        string nuevaEtiquta();
+        bool equivalentes(int tipo1, int tipo2);
+    };
 
-char* ampliar(char* dir, int menor, int mayor);
+#ifdef __cplusplus
+}
+#endif
 
-char* reducir(char* dir, int mayor, int menor);
-
-char* nuevaTemporal();
-
-char* nuevaEtiqueta();
-
-int equivalentes(int tipo1, int tipo2);
+#endif
