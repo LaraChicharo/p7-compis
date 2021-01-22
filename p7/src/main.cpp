@@ -4,6 +4,7 @@
 
 extern FILE *yyin;
 extern token *yylex();
+extern token *tokenActual;
 
 int main(int argc, char **argv) {
   if(argc < 2) {

@@ -1,14 +1,7 @@
+#pragma once
 #include "tokens.h"
 #include "lista.h"
 
-/* Token actual en la lectura */
-token *tokenActual;
-/* Dirección disponible en la TT */
-int dir;
-/* Tabla de símbolos */
-Lista *tablaSimbolos;
-/* Tabla de tipos */
-Lista *tablaTipos;
 
 /**
  * Función para prueba y empate del No-terminal A
@@ -205,7 +198,7 @@ void parse();
 /**
  * Función para reporte de errores sintácticos y semánticos.
  */
-void error(char *msg);
+void error(string msg);
 
 /**
  * (opcional) Función para buscar símbolos en la tabla de símbolos

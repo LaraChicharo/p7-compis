@@ -3,6 +3,11 @@
 extern token *yylex();
 extern int yylineno;
 
+token *tokenActual;
+int dir;
+Lista *tablaSimbolos;
+Lista *tablaTipos;
+
 void eat(int clase) {
   if(equals(tokenActual, clase)) {
     tokenActual = yylex();
@@ -66,7 +71,7 @@ void D(){
 
 void E(){
   if (equals(tokenActual, CIZQ)) {
-    char* valor;
+    string valor;
     eat(CIZQ);
     valor = tokenActual->valor;
     eat(NUM);
@@ -429,8 +434,8 @@ void ZP() {
   }
 }
 
-void error(char *msg) {
-  printf(msg);
-  printf(": línea %i\n", yylineno);
+void error(string msg) {
+  cout << msg << endl;
+  cout << ": línea " << yylineno << endl;
   exit(1);
 }

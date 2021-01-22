@@ -57,7 +57,9 @@
  */
 #endif
 
-#include <string.h>
+using namespace std;
+#include <string>
+#include <iostream>
 #include <stdlib.h>
 
 
@@ -66,19 +68,19 @@
  */
 typedef struct token {
   int clase; //léxica
-  char *valor; //lexema
+  string valor; //lexema
   int tipo; //para diferenciar entre diferentes lexemas de una misma clase léxica
 } token;
 
 /**
  * Inicialización de tokens sin tipo
  */
-token *crea_token(int clase, char *valor);
+token *crea_token(int clase, string valor);
 
 /**
  * Inicialización de tokens con tipo
  */
-token *crea_token_tipo(int clase, char *valor, int tipo);
+token *crea_token_tipo(int clase, string valor, int tipo);
 
 /**
  * Verificación de token perteneciente a una clase léxica

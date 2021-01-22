@@ -7,7 +7,7 @@
 typedef struct simbolo {
   int tipo;
   int dir; //dirección
-  char *id; //identificador
+  string id; //identificador
   int var; 
   Lista *args; //argumentos
 } simbolo ;
@@ -15,4 +15,4 @@ typedef struct simbolo {
 /**
  * Inicialización de símbolos
  */
-simbolo *crea_simbolo(char *id, int dir, int type, int var, Lista *args);
+simbolo *crea_simbolo(string id, int dir, int type, int var, Lista *args);

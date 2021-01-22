@@ -1,4 +1,4 @@
-CXX=gcc
+CXX=g++
 BIN=recursive_parser
 INC=headers
 
@@ -7,7 +7,7 @@ OBJ=$(SRC:%.c=%.c)
 
 all: flex fin
 
-fin: lex.yy.c tokens.c tipo.c simbolo.c lista.c parser.c main.c
+fin: lex.yy.cpp tokens.cpp tipo.cpp simbolo.cpp parser.cpp main.cpp
 	$(CXX) -I$(INC) -g -o $(BIN) $^ 
 
 %.o: %.c
@@ -15,8 +15,9 @@ fin: lex.yy.c tokens.c tipo.c simbolo.c lista.c parser.c main.c
 
 .PHONY: clean
 clean :
-	rm -f $(BIN) *.o lex.yy.c
+	rm -f $(BIN) *.o lex.yy.cpp
 
 .PHONY: flex
 flex:
 	flex lexer.lex
+	mv lex.yy.c lex.yy.cpp
