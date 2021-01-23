@@ -7,7 +7,7 @@ OBJ=$(SRC:%.c=%.c)
 
 all: flex fin
 
-fin: lex.yy.cpp tokens.cpp tipo.cpp simbolo.cpp parser.cpp main.cpp
+fin: lex.yy.cpp tokens.cpp tipo.cpp simbolo.cpp parser.cpp main.cpp tablasimbolos.cpp
 	$(CXX) -I$(INC) -g -o $(BIN) $^ 
 
 %.o: %.c

@@ -1,5 +1,7 @@
-#include "lista.h"
-#include "tokens.h"
+#pragma once
+using namespace std;
+#include <string>
+#include <vector>
 
 /**
  * Estructura para modelar símbolos de la TS
@@ -9,10 +11,10 @@ typedef struct simbolo {
   int dir; //dirección
   string id; //identificador
   int var; 
-  Lista *args; //argumentos
+  vector<int> args; //argumentos
 } simbolo ;
 
 /**
  * Inicialización de símbolos
  */
-simbolo *crea_simbolo(string id, int dir, int type, int var, Lista *args);
+simbolo *crea_simbolo(string id, int dir, int type, int var, vector<int> args);

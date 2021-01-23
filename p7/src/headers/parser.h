@@ -1,7 +1,6 @@
 #pragma once
 #include "tokens.h"
-#include "lista.h"
-
+#include "tablasimbolos.h"
 
 /**
  * Función para prueba y empate del No-terminal A
@@ -203,7 +202,7 @@ void error(string msg);
 /**
  * (opcional) Función para buscar símbolos en la tabla de símbolos
  */
-int buscar(char *simbolo);
+int buscar(string simbolo);
 
 /**
  * Obtener tamaño de elemento de la tabla de tipos
@@ -213,9 +212,9 @@ int getTam(int id);
 /**
  * Función para imprimir Tabla de tipos
  */
-void printTT(Lista *TT);
+void printTT(tabla_simbolos *TT);
 
 /**
  * Función para imprimir Tabla de símbolos
  */
-void printTS(Lista *TS);
+void printTS(tabla_simbolos *TS);
