@@ -53,8 +53,10 @@ I' -> , C id I' | eps
 J -> { B K }
 K -> L K'
 K' -> L K' | eps
-L -> P = Q; |  if(Q) L | if(Q) L else L |while(Q) L |do L while(Q)
-   | break;| J | return U; | return; | switch(Q){M}| print U;     |scan P
+L -> P = Q; |  if(Q) L | if(Q) L L'' |while(Q) L |do L while(Q)
+   | break;| J | return L'' | switch(Q){M}| print U; | scan P
+L' -> else L | epsilon
+L'' -> U; | ;
 M -> N M | O | epsilon
 N -> case numero: K
 O -> default: K
@@ -65,7 +67,8 @@ R -> S R'
 R' -> && S R' | epsilon
 S -> T S'
 S' -> == T S' | != T S' | epsilon
-T -> U < U | U <= U | U >= U | U > U | U
+T -> U T'
+T' -> < U | <= U | >= U | > U | epsilon
 U -> V U'
 U' -> + V U' | - V U' | epsilon
 V -> W V'
