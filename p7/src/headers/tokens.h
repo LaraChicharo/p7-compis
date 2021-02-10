@@ -49,6 +49,9 @@
 #define FALSE 1043
 
 #define FUNC 1044
+#define RETURN 1045
+#define PRINT 1046
+#define SCAN 1047
 
 #define FIN 9001 // $
 /*

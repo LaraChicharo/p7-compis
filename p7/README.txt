@@ -41,7 +41,7 @@ localizacion = AA
 
 A -> B G
 B -> C F;B | epsilon
-C -> D E 
+C -> D E
 D- > int | float | char | double | void
 E -> [numero] E | epsilon
 F -> id F'
@@ -49,10 +49,10 @@ F' -> ,id F' | epsilon
 G -> func C id(H) J G | epsilon
 H -> I | epsilon
 I -> C id I'
-I' -> , C id I' | eps
+I' -> , C id I' | epsilon
 J -> { B K }
 K -> L K'
-K' -> L K' | eps
+K' -> L K' | epsilon
 L -> P = Q; |  if(Q) L | if(Q) L L'' |while(Q) L |do L while(Q)
    | break;| J | return L'' | switch(Q){M}| print U; | scan P
 L' -> else L | epsilon

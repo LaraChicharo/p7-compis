@@ -29,7 +29,7 @@ void A() {
     puts("Fin de análisis sintáctico.");
     return;
   } else {
-    puts("kk");
+    puts("Error al final del análisis sintáctico");
   }
 }
 
@@ -44,6 +44,7 @@ void B(){
       eat(PCOMA);
       B();
   }
+  // else error
 }
 
 void C(){
@@ -85,6 +86,7 @@ void F(){
     eat(ID);
     FP();
   }
+  // else error
 }
 
 void FP(){
@@ -98,6 +100,7 @@ void FP(){
 void G() {
   if (equals(tokenActual, FUNC)) {
     eat(FUNC);
+    C();
     eat(ID);
     eat(PIZQ);
     H();
@@ -151,7 +154,10 @@ void KP() {
     equals(tokenActual,DO) ||
     equals(tokenActual,BREAK) ||
     equals(tokenActual,LKEY) ||
-    equals(tokenActual,SWITCH)) {
+    equals(tokenActual,RETURN) ||
+    equals(tokenActual,SWITCH) ||
+    equals(tokenActual,PRINT) ||
+    equals(tokenActual,SCAN)) {
     L();
     KP();
   }
@@ -159,15 +165,15 @@ void KP() {
 
 void L() {
   if (equals(tokenActual, ID)) {
-    Z();
-    eat(ASIG);
     P();
+    eat(ASIG);
+    Q();
   }
   else if (equals(tokenActual, IF))
   {
     eat(IF);
     eat(PIZQ);
-    P();
+    Q();
     eat(PDER);
     L();
     if (equals(tokenActual, ELSE)) {
@@ -178,7 +184,7 @@ void L() {
   else if (equals(tokenActual, WHILE)) {
     eat(WHILE);
     eat(PIZQ);
-    P();
+    Q();
     eat(PDER);
     L();
   }
@@ -187,7 +193,7 @@ void L() {
     L();
     eat(WHILE);
     eat(PIZQ);
-    P();
+    Q();
     eat(PDER);
   }
   else if (equals(tokenActual,BREAK))
@@ -199,15 +205,50 @@ void L() {
   {
     J();
   }
+  else if (equals(tokenActual,RETURN))
+  {
+    eat(RETURN);
+    LPP();
+  }
   else if (equals(tokenActual,SWITCH))
   {
     eat(SWITCH);
     eat(PIZQ);
-    P();
+    Q();
     eat(PDER);
     eat(LKEY);
     M();
     eat(RKEY);
+  }
+  else if (equals(tokenActual,PRINT))
+  {
+    eat(PRINT);
+    U();
+    eat(PCOMA);
+  }
+  else if (equals(tokenActual,SCAN))
+  {
+    eat(SCAN);
+    P();
+  }
+}
+
+void LP() {
+  if (equals(tokenActual,ELSE))
+  {
+    eat(ELSE);
+    L();
+  }
+}
+
+void LPP() {
+  if (equals(tokenActual,PCOMA))
+  {
+    eat(PCOMA);
+  }
+  else {
+    U();
+    eat(PCOMA);
   }
 }
 
@@ -234,27 +275,21 @@ void O() {
   K();
 }
 
-void P() { //
-  Q();
-  PP();
-}
-
-void PP() {
-  if (equals(tokenActual, OR)) {
-    eat(OR);
-    Q();
-    PP();
+void P() {
+  eat(ID);
+  if (equals(tokenActual, CIZQ)) {
+    AA();
   }
 }
 
-void Q() { //
+void Q() {
   R();
   QP();
 }
 
 void QP() {
-  if (equals(tokenActual, AND)) {
-    eat(AND);
+  if (equals(tokenActual, OR)) {
+    eat(OR);
     R();
     QP();
   }
@@ -266,13 +301,8 @@ void R() {
 }
 
 void RP() {
-  if (equals(tokenActual, EQ)) {
-    eat(EQ);
-    S();
-    RP();
-  }
-  else if (equals(tokenActual, NEQ)) {
-    eat(NEQ);
+  if (equals(tokenActual, AND)) {
+    eat(AND);
     S();
     RP();
   }
@@ -280,21 +310,19 @@ void RP() {
 
 void S() {
   T();
-  if (equals(tokenActual, LESS)) {
-    eat(LESS);
+  SP();
+}
+
+void SP() {
+  if (equals(tokenActual, EQ)) {
+    eat(EQ);
     T();
+    SP();
   }
-  else if (equals(tokenActual, LEQ)) {
-    eat(LEQ);
+  else if (equals(tokenActual, NEQ)) {
+    eat(NEQ);
     T();
-  }
-  else if (equals(tokenActual, GEQ)) {
-    eat(GEQ);
-    T();
-  }
-  else if (equals(tokenActual, GREATER)) {
-    eat(GREATER);
-    T();
+    SP();
   }
 }
 
@@ -304,15 +332,21 @@ void T() {
 }
 
 void TP() {
-  if (equals(tokenActual, PLUS)) {
-    eat(PLUS);
+  if (equals(tokenActual, LESS)) {
+    eat(LESS);
     U();
-    TP();
   }
-  else if (equals(tokenActual, MINUS)) {
-    eat(MINUS);
+  else if (equals(tokenActual, LEQ)) {
+    eat(LEQ);
     U();
-    TP();
+  }
+  else if (equals(tokenActual, GEQ)) {
+    eat(GEQ);
+    U();
+  }
+  else if (equals(tokenActual, GREATER)) {
+    eat(GREATER);
+    U();
   }
 }
 
@@ -322,115 +356,130 @@ void U() {
 }
 
 void UP() {
-  if (equals(tokenActual, MULT)) {
-    eat(MULT);
+  if (equals(tokenActual, PLUS)) {
+    eat(PLUS);
     V();
     UP();
   }
-  else if (equals(tokenActual, DIV)) {
-    eat(DIV);
-    V();
-    UP();
-  }
-  else if (equals(tokenActual, MOD)) {
-    eat(MOD);
+  else if (equals(tokenActual, MINUS)) {
+    eat(MINUS);
     V();
     UP();
   }
 }
 
 void V() {
-  if (equals(tokenActual, NOT)) {
-    eat(NOT);
-    V();
-  }
-  else if (equals(tokenActual, MINUS)) {
-    eat(MINUS);
-    V();
-  }
-  else {
+  W();
+  VP();
+}
+
+void VP() {
+  if (equals(tokenActual, MULT)) {
+    eat(MULT);
     W();
+    VP();
+  }
+  else if (equals(tokenActual, DIV)) {
+    eat(DIV);
+    W();
+    VP();
+  }
+  else if (equals(tokenActual, MOD)) {
+    eat(MOD);
+    W();
+    VP();
   }
 }
 
 void W() {
-  switch(tokenActual->clase)
-  {
-    case PIZQ:
-      eat(PIZQ);
-      P();
-      eat(PDER);
-      break;
-    case ID:
-      eat(ID);
-      if (equals(tokenActual,PIZQ))
-      {
-        eat(PIZQ);
-        X();
-        eat(PDER);
-      }
-      else if (equals(tokenActual,CIZQ))
-      {
-        ZP();
-      }
-      break;
-    case NUM:
-      eat(NUM);
-      break;
-    case STR:
-      eat(STR);
-      break;
-    case TRUE:
-      eat(TRUE);
-      break;
-    case FALSE:
-      eat(FALSE);
-      break;
-    default:
-      error("Error de sintaxis");
-      break;
+  if (equals(tokenActual, NOT)) {
+    eat(NOT);
+    W();
+  }
+  else if (equals(tokenActual, MINUS)) {
+    eat(MINUS);
+    W();
+  }
+  else if (equals(tokenActual, PIZQ)
+    || equals(tokenActual, ID)
+    || equals(tokenActual, NUM)
+    || equals(tokenActual, STR)
+    || equals(tokenActual, TRUE)
+    || equals(tokenActual, FALSE)) {
+    X();
   }
 }
 
 void X() {
-  if (equals(tokenActual, NOT)
-    || equals(tokenActual, MINUS)
-    || equals(tokenActual, PIZQ)
-    || equals(tokenActual, NUM)
-    || equals(tokenActual, STR)
-    || equals(tokenActual, TRUE)
-    || equals(tokenActual, FALSE)
-    || equals(tokenActual, ID)) {
-    Y();
+  if (equals(tokenActual, PIZQ) {
+    eat(PIZQ);
+    Q();
+    eat(PDER);
+  }
+  else if (equals(tokenActual, ID) {
+    eat(ID);
+    if (equals(tokenActual, CIZQ) {
+      AA();
+    }
+    else if (equals(tokenActual, PIZQ) {
+      eat(PIZQ);
+      Y();
+      eat(PDER);
+    }
+  }
+  else if (equals(tokenActual, NUM) {
+    eat(NUM);
+  }
+  else if (equals(tokenActual, STR) {
+    eat(STR);
+  }
+  else if (equals(tokenActual, TRUE) {
+    eat(TRUE);
+  }
+  else if (equals(tokenActual, FALSE) {
+    eat(FALSE);
   }
 }
 
 void Y() {
-  P();
-  YP();
-}
-
-void YP() {
-  if (equals(tokenActual, COMA)) {
-    eat(COMA);
-    P();
-    YP();
+  if (equals(tokenActual, NOT)
+    || equals(tokenActual, MINUS)
+    || equals(tokenActual, PIZQ)
+    || equals(tokenActual, ID)
+    || equals(tokenActual, NUM)
+    || equals(tokenActual, STR)
+    || equals(tokenActual, TRUE)
+    || equals(tokenActual, FALSE)) {
+    Z();
   }
 }
 
-//Funcion que cae en desuso
 void Z() {
-  eat(ID);
+  Q();
   ZP();
 }
 
 void ZP() {
-  if (equals(tokenActual,CIZQ))
-  {
-    eat(CIZQ);
-    P();
-    eat(CDER);
+  if (equals(tokenActual,COMA)) {
+    eat(COMA);
+    Q();
     ZP();
+  }
+}
+
+void AA() {
+  eat(CIZQ);
+  Q();
+  eat(CDER);
+  AAP();
+}
+
+void AAP() {
+  if (equals(tokenActual,CIZQ)) {
+    eat(CIZQ);
+    Q();
+    eat(CDER);
+    AAP();
   }
 }
 

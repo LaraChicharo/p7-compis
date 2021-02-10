@@ -41,6 +41,9 @@ cadena \".*\"
 "true" { ECHO; return crea_token(TRUE, ""); }
 "false" { ECHO; return crea_token(FALSE, ""); }
 "func" { ECHO; return crea_token(FUNC, ""); }
+"return" { ECHO; return crea_token(RETURN, ""); }
+"print" { ECHO; return crea_token(PRINT, ""); }
+"scan" { ECHO; return crea_token(SCAN, ""); }
 
 "&&" { ECHO; return crea_token(AND, ""); }
 "||" { ECHO; return crea_token(OR, ""); }
