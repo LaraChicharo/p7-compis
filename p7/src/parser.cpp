@@ -411,32 +411,32 @@ void W() {
 }
 
 void X() {
-  if (equals(tokenActual, PIZQ) {
+  if (equals(tokenActual, PIZQ)) {
     eat(PIZQ);
     Q();
     eat(PDER);
   }
-  else if (equals(tokenActual, ID) {
+  else if (equals(tokenActual, ID)) {
     eat(ID);
-    if (equals(tokenActual, CIZQ) {
+    if (equals(tokenActual, CIZQ)) {
       AA();
     }
-    else if (equals(tokenActual, PIZQ) {
+    else if (equals(tokenActual, PIZQ)) {
       eat(PIZQ);
       Y();
       eat(PDER);
     }
   }
-  else if (equals(tokenActual, NUM) {
+  else if (equals(tokenActual, NUM)) {
     eat(NUM);
   }
-  else if (equals(tokenActual, STR) {
+  else if (equals(tokenActual, STR)) {
     eat(STR);
   }
-  else if (equals(tokenActual, TRUE) {
+  else if (equals(tokenActual, TRUE)) {
     eat(TRUE);
   }
-  else if (equals(tokenActual, FALSE) {
+  else if (equals(tokenActual, FALSE)) {
     eat(FALSE);
   }
 }
