@@ -9,7 +9,7 @@ extern token *tokenActual;
 int main(int argc, char **argv) {
   if(argc < 2) {
     puts("Falta archivo de entrada.");
-    exit(1); 
+    exit(1);
   }
   printf("Archivo de entrada: ");
   puts(argv[1]);
@@ -18,6 +18,5 @@ int main(int argc, char **argv) {
 
   puts("Comenzando análisis...");
   tokenActual = yylex();
-  //puts(tokenActual->valor); //verificación de lectura  
   parse();
 }

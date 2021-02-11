@@ -76,14 +76,19 @@ typedef struct token {
 } token;
 
 /**
+ * Inicialización de tokens sin valor ni tipo
+ */
+token *crea_token(int clase);
+
+/**
  * Inicialización de tokens sin tipo
  */
-token *crea_token(int clase, string valor);
+token *crea_token_valor(int clase, string valor);
 
 /**
  * Inicialización de tokens con tipo
  */
-token *crea_token_tipo(int clase, string valor, int tipo);
+token *crea_token_valor_tipo(int clase, string valor, int tipo);
 
 /**
  * Verificación de token perteneciente a una clase léxica

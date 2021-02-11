@@ -54,3 +54,4 @@ dkms.conf
 
 # Others
 p7/src/lex.yy.cpp
+p7/src/prueba.in
